@@ -225,7 +225,7 @@ public class adminPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4MouseClicked
 
     /** 
-     * @param args the command line argumentsX
+     * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

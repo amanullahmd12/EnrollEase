@@ -32,6 +32,7 @@ public class signupdata extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -93,15 +94,26 @@ public class signupdata extends javax.swing.JFrame {
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, 40));
 
         jButton3.setBackground(new java.awt.Color(204, 51, 0));
-        jButton3.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        jButton3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("GET STUDENT DETAILS ");
+        jButton3.setText("COURSE REGISTERD STUDENT DETAILS ");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, -1, 50));
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 400, 40));
+
+        jButton4.setBackground(new java.awt.Color(204, 51, 0));
+        jButton4.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("STUDENT COMPLETE DETAILS");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 350, 390, 50));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 1440, 670));
 
@@ -161,6 +173,52 @@ public class signupdata extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+         try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/student_Info","root","9431285520");
+            Statement st=con.createStatement();
+            String query = "select * from studentData";
+            ResultSet rs=st.executeQuery(query);
+            ResultSetMetaData rsmd =rs.getMetaData();
+            DefaultTableModel model=(DefaultTableModel)jTable2.getModel();
+
+            int cols=rsmd.getColumnCount();
+            String[] colName=new String[cols];
+
+            for(int i=0;i<cols;i++)
+            colName[i]=rsmd.getColumnName(i+1);
+            model.setColumnIdentifiers(colName);
+
+            String name,fName,mName,age,contactNumber,dateOfBirth,gender,userId,password;
+
+            while(rs.next()){
+                name =rs.getString(1);
+               fName =rs.getString(2);
+               mName =rs.getString(3);
+               age =rs.getString(4);
+               contactNumber = rs.getString(5);
+               dateOfBirth =rs.getString(6);
+               gender = rs.getString(7);
+               userId =rs.getString(8);
+               password =rs.getString(9);
+                
+                String[] row ={name,fName,mName,age,contactNumber,dateOfBirth,gender,userId,password};
+                model.addRow(row);
+            }
+            st.close();
+            con.close();
+
+        }
+        catch(Exception e){
+
+        }
+
+                                           
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -200,6 +258,7 @@ public class signupdata extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

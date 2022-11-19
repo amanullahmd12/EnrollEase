@@ -175,6 +175,11 @@ public class studentHome extends javax.swing.JFrame {
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
         jTextField2.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 240, 30));
 
         jTextField3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -234,9 +239,6 @@ public class studentHome extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-        
-        
-        
         
         String selectedValue =jComboBox1.getSelectedItem().toString();
         jTextField1.setText(selectedValue);
@@ -310,6 +312,11 @@ public class studentHome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField5FocusGained
 
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -369,7 +376,22 @@ public class studentHome extends javax.swing.JFrame {
            
        }
 }
-    
+     private void updateTextField1(){
+   try{
+           Class.forName("com.mysql.jdbc.Driver");
+           Connection conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/student_Info","root","9431285520");
+           String Sql="Select * from availableCourse";
+           PreparedStatement pst =conn.prepareStatement(Sql);
+           ResultSet rs =pst.executeQuery();
+           while(rs.next()){
+               jTextField2.addItem(rs.getString("name"));
+               
+           }
+       }
+       catch (Exception e){
+           
+       }
+     }
     
     public javax.swing.JComboBox<String> jComboBox2;
 

@@ -1,7 +1,14 @@
-
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.util.Random;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -16,6 +23,7 @@ public class enrollmentForm extends javax.swing.JFrame {
     /**
      * Creates new form enrollmentForm
      */
+    int OTP;
     public enrollmentForm() {
         initComponents();
     }
@@ -56,6 +64,7 @@ public class enrollmentForm extends javax.swing.JFrame {
         dob = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -207,6 +216,17 @@ public class enrollmentForm extends javax.swing.JFrame {
         });
         dob.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, -1, -1));
 
+        jButton4.setBackground(new java.awt.Color(204, 0, 0));
+        jButton4.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Verify");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        dob.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 280, -1, -1));
+
         getContentPane().add(dob, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 1490, 700));
 
         pack();
@@ -332,6 +352,43 @@ public class enrollmentForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField6FocusGained
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        	try {
+			// Construct data
+			String apiKey = "apikey=" + "Njg3NzQzNGY2MTZjNTU1NTc4NTI2MTQ2NTY0NTM2NDk=";
+                        Random rand = new Random ();
+                        OTP=rand.nextInt(999999);
+                        String name = jTextField1.getText();
+                        
+			String message = "&message=" + "Hey" + name + "Your verfication code is"+OTP;
+			String sender = "&sender=" + "Graphic Era";
+			String numbers = "&numbers=" + jTextField5.getText();
+			
+			// Send data
+			HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
+			String data = apiKey + numbers + message + sender;
+			conn.setDoOutput(true);
+			conn.setRequestMethod("POST");
+			conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
+			conn.getOutputStream().write(data.getBytes("UTF-8"));
+			final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			final StringBuffer stringBuffer = new StringBuffer();
+			String line;
+			while ((line = rd.readLine()) != null) {
+				stringBuffer.append(line);
+			}
+			rd.close();
+			JOptionPane.showMessageDialog(null,"OTP send Sucessfully");
+			//return stringBuffer.toString();
+		} catch (Exception e) {
+                    JOptionPane.showConfirmDialog(null,"Error Sms "+e);
+			System.out.println("Error SMS "+e);
+			//return "Error "+e;
+		}
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -374,6 +431,7 @@ public class enrollmentForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
