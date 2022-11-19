@@ -1,1 +1,1 @@
-# onlineCourseRegistrationSystem
+# CourseRegistrationSystem
