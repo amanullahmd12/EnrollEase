@@ -71,4 +71,10 @@
 # DEMO 
 
 
+
+
+https://github.com/amanullahmd12/EnrollEase/assets/92320933/0bc17b26-9325-499a-ab9f-b3ed689cca0f
+
+
+
 https://drive.google.com/drive/folders/1u67DSejk9UqhiJl2fqliyek37tEak7mu?usp=sharing
