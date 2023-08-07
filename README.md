@@ -25,12 +25,7 @@ Eroll-Ease has been developed using a powerful tech stack to ensure efficiency a
 - **MySQL:** The robust MySQL database system is used for storing and managing the application's data securely.
 
 
-## Installation and Usage
-
-To get started with Eroll-Ease, refer to the detailed installation instructions and user documentation in the repository's Wiki section. Feel free to explore, fork, and submit pull requests to make Eroll-Ease an even more powerful and efficient Course Registration System.
-
-
-
+## Interface
 
 
 
