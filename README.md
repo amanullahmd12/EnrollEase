@@ -1,4 +1,5 @@
-# CourseRegistrationSystem
+# EnrollEase
+
 
 
 
