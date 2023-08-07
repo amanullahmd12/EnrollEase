@@ -24,18 +24,10 @@ Eroll-Ease has been developed using a powerful tech stack to ensure efficiency a
 - **JavaFX and Swing:** These Java frameworks are utilized for creating the graphical user interface, providing an appealing and interactive design.
 - **MySQL:** The robust MySQL database system is used for storing and managing the application's data securely.
 
-## Contributions
-
-We warmly welcome contributions from the open-source community to enhance and expand Eroll-Ease. Whether you're a Java developer, JavaFX expert, database guru, or a tester, your contributions will play a vital role in making this system even better.
 
 ## Installation and Usage
 
 To get started with Eroll-Ease, refer to the detailed installation instructions and user documentation in the repository's Wiki section. Feel free to explore, fork, and submit pull requests to make Eroll-Ease an even more powerful and efficient Course Registration System.
-
-## Thank You
-
-Thank you for your interest in Eroll-Ease! Let's collaborate and make academic life more convenient and organized for students, faculty, and administrators. Happy coding! 🚀
-
 
 
 
@@ -111,3 +103,14 @@ https://github.com/amanullahmd12/EnrollEase/assets/92320933/0bc17b26-9325-499a-a
 
 
 https://drive.google.com/drive/folders/1u67DSejk9UqhiJl2fqliyek37tEak7mu?usp=sharing
+
+
+
+
+
+## Thank You
+
+Thank you for your interest in Eroll-Ease! Let's collaborate and make academic life more convenient and organized for students, faculty, and administrators. Happy coding! 🚀
+
+
+
