@@ -105,7 +105,7 @@ https://drive.google.com/drive/folders/1u67DSejk9UqhiJl2fqliyek37tEak7mu?usp=sha
 
 ## Thank You
 
-Thank you for your interest in Eroll-Ease! Let's collaborate and make academic life more convenient and organized for students, faculty, and administrators. Happy coding! 🚀
+Thank you for your interest in Eroll-Ease! Happy coding! 🚀
 
 
 
